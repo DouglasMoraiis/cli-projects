@@ -1,0 +1,15 @@
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\bin\Debug\net6.0\EditorHTML.exe
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\bin\Debug\net6.0\EditorHTML.deps.json
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\bin\Debug\net6.0\EditorHTML.runtimeconfig.json
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\bin\Debug\net6.0\EditorHTML.dll
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\bin\Debug\net6.0\ref\EditorHTML.dll
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\bin\Debug\net6.0\EditorHTML.pdb
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\obj\Debug\net6.0\EditorHTML.csproj.AssemblyReference.cache
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\obj\Debug\net6.0\EditorHTML.GeneratedMSBuildEditorConfig.editorconfig
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\obj\Debug\net6.0\EditorHTML.AssemblyInfoInputs.cache
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\obj\Debug\net6.0\EditorHTML.AssemblyInfo.cs
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\obj\Debug\net6.0\EditorHTML.csproj.CoreCompileInputs.cache
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\obj\Debug\net6.0\EditorHTML.dll
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\obj\Debug\net6.0\ref\EditorHTML.dll
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\obj\Debug\net6.0\EditorHTML.pdb
+F:\DEVPROJECTS\VisualStudio\Repositories\dotnet-cli-projects\editorhtml\obj\Debug\net6.0\EditorHTML.genruntimeconfig.cache
