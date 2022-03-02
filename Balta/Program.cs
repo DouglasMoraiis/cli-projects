@@ -1,6 +1,7 @@
 ﻿using Balta.ContentContext;
 using Balta.ContentContext.Enums;
 using Balta.NotificationContext;
+using Balta.SubstringContext;
 
 namespace Balta
 {
@@ -43,6 +44,11 @@ namespace Balta
                     Console.WriteLine(item.Course?.Level);
                 }
             }
+
+            var payPalSubscription = new PayPalSubscription();
+            var student = new Student();
+            student.CreateSubscription(payPalSubscription);
+    
         }
     }
 }
