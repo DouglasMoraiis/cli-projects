@@ -1,0 +1,15 @@
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\bin\Debug\net6.0\Balta.exe
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\bin\Debug\net6.0\Balta.deps.json
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\bin\Debug\net6.0\Balta.runtimeconfig.json
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\bin\Debug\net6.0\Balta.dll
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\bin\Debug\net6.0\ref\Balta.dll
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\bin\Debug\net6.0\Balta.pdb
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\obj\Debug\net6.0\Balta.csproj.AssemblyReference.cache
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\obj\Debug\net6.0\Balta.GeneratedMSBuildEditorConfig.editorconfig
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\obj\Debug\net6.0\Balta.AssemblyInfoInputs.cache
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\obj\Debug\net6.0\Balta.AssemblyInfo.cs
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\obj\Debug\net6.0\Balta.csproj.CoreCompileInputs.cache
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\obj\Debug\net6.0\Balta.dll
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\obj\Debug\net6.0\ref\Balta.dll
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\obj\Debug\net6.0\Balta.pdb
+F:\DEVPROJECTS\VisualStudio\Repositories\Balta\obj\Debug\net6.0\Balta.genruntimeconfig.cache
