@@ -1,5 +1,6 @@
 ﻿using Balta.ContentContext;
 using Balta.ContentContext.Enums;
+using Balta.NotificationContext;
 
 namespace Balta
 {
@@ -15,13 +16,13 @@ namespace Balta
             articles.Add(new Article("Artigo Sobre .NET", "dotnet"));
 
             var courses = new List<Course>();
-
             var courseOOP = new Course("Fundamentos de POO", "fundamentos-poo", EContentLevel.Beginner);
             var courseCsharp = new Course("Fundamentos de C#", "fundamentos-csharp", EContentLevel.Fundamental);
             var courseDotnet = new Course("Fundamentos de .NET", "fundamentos-dotnet", EContentLevel.Intermediary);
             courses.Add(courseOOP);
             courses.Add(courseCsharp);
             courses.Add(courseDotnet);
+
 
             var careers = new List<Career>();
             var careerDotnet = new Career("Especialista .NET", "especialista-dotnet");
@@ -39,7 +40,7 @@ namespace Balta
                 foreach (var item in career.Items.OrderBy(x => x.Order))
                 {
                     Console.WriteLine($"{item.Order} - {item.Title}");
-                    Console.WriteLine(item.Course.Level);
+                    Console.WriteLine(item.Course?.Level);
                 }
             }
         }
