@@ -1,4 +1,5 @@
-﻿using BaltaDataAcces.Models;
+﻿using System.Data;
+using BaltaDataAcces.Models;
 using Dapper;
 using Microsoft.Data.SqlClient;
 namespace BaltaDataAccess
@@ -11,12 +12,34 @@ namespace BaltaDataAccess
 
             using (var connection = new SqlConnection(connectionString))
             {
-                ListCategories(connection);
-                UpdateCategory(connection);
-                DeleteCategory(connection);
-                ListCategories(connection);
-                //CreateCategory(connection);
+                //ListCategories(connection);
+                //UpdateCategory(connection);
+                //DeleteCategory(connection);
+                //GetCategory(connection);
+                //CreateManyCategories(connection);
+                //ExecuteProcedure(connection);
+                ExecuteReadProcedure(connection);
+                //ListCategories(connection);
             }
+        }
+
+        static void GetCategory(SqlConnection connection)
+        {
+            var getQuery = @"
+                SELECT 
+                    [Id], [Title]
+                FROM 
+                    [Category]
+                WHERE 
+                    [Id] = @Id
+            ";
+
+            var category = connection.QueryFirst<Category>(getQuery, new
+            {
+                Id = "af3407aa-11ae-4621-a2ef-2028b85507c4"
+            });
+
+            Console.WriteLine($"{category.Id} - {category.Title}");
         }
 
         static void ListCategories(SqlConnection connection)
@@ -53,7 +76,7 @@ namespace BaltaDataAccess
                     @Featured
             )";
 
-            var rows = connection.Execute(insertSql, new
+            var affectedrows = connection.Execute(insertSql, new
             {
                 category.Id,
                 category.Title,
@@ -63,7 +86,65 @@ namespace BaltaDataAccess
                 category.Description,
                 category.Featured,
             });
-            Console.WriteLine($"Operação Create: {rows} linha(s) afetada(s).");
+            Console.WriteLine($"Operação Create: {affectedrows} linha(s) afetada(s).");
+        }
+
+        static void CreateManyCategories(SqlConnection connection)
+        {
+            var category = new Category();
+            category.Id = Guid.NewGuid();
+            category.Title = "Amazon AWS New";
+            category.Url = "amazon.com";
+            category.Summary = "AWS Cloud";
+            category.Order = 8;
+            category.Description = "Categoria destinada a serviços AWS";
+            category.Featured = false;
+
+            var category2 = new Category();
+            category2.Id = Guid.NewGuid();
+            category2.Title = "Fundamentos de Java";
+            category2.Url = "java.com";
+            category2.Summary = "Java";
+            category2.Order = 9;
+            category2.Description = "Categoria destinada Java";
+            category2.Featured = true;
+
+            var insertSql = @"
+                INSERT INTO 
+                    [Category] 
+                VALUES (
+                    @Id, 
+                    @Title, 
+                    @Url, 
+                    @Summary, 
+                    @Order, 
+                    @Description, 
+                    @Featured
+            )";
+
+            var affectedrows = connection.Execute(insertSql, new[]{
+            new
+            {
+                category.Id,
+                category.Title,
+                category.Url,
+                category.Summary,
+                category.Order,
+                category.Description,
+                category.Featured,
+            },
+            new
+            {
+                category2.Id,
+                category2.Title,
+                category2.Url,
+                category2.Summary,
+                category2.Order,
+                category2.Description,
+                category2.Featured,
+            }
+        });
+            Console.WriteLine($"Operação Create: {affectedrows} linha(s) afetada(s).");
         }
 
         static void UpdateCategory(SqlConnection connection)
@@ -77,13 +158,13 @@ namespace BaltaDataAccess
                     [Id] = @Id
             ";
 
-            var rows = connection.Execute(updateQuery, new
+            var affectedrows = connection.Execute(updateQuery, new
             {
                 Id = new Guid("af3407aa-11ae-4621-a2ef-2028b85507c4"),
                 Title = "Frontend 2021",
             });
 
-            Console.WriteLine($"Operação Update: {rows} linha(s) afetada(s).");
+            Console.WriteLine($"Operação Update: {affectedrows} linha(s) afetada(s).");
         }
 
         static void DeleteCategory(SqlConnection connection)
@@ -94,11 +175,48 @@ namespace BaltaDataAccess
                 WHERE
                     [Id] = @Id
             ";
-            var rows = connection.Execute(deleteQuery, new
+            var affectedrows = connection.Execute(deleteQuery, new
             {
                 Id = "8079762d-b2c7-4617-ac60-bf6187563b06"
             });
-            Console.WriteLine($"Operação Delete: {rows} linha(s) afetada(s).");
+            Console.WriteLine($"Operação Delete: {affectedrows} linha(s) afetada(s).");
+        }
+
+        static void ExecuteProcedure(SqlConnection connection)
+        {
+            var procedure = "spDeleteStudent";
+            var parms = new
+            {
+                StudentId = "df6f2bf6-f951-4aa8-ac8e-7423fd241625"
+            };
+
+            var affectedrows = connection.Execute(
+                procedure,
+                parms,
+                commandType: CommandType.StoredProcedure
+            );
+
+            Console.WriteLine($"Operação Delete: {affectedrows} linha(s) afetada(s).");
+        }
+
+        static void ExecuteReadProcedure(SqlConnection connection)
+        {
+            var procedure = "spGetCourseByCategory";
+            var parms = new
+            {
+                CategoryId = "af3407aa-11ae-4621-a2ef-2028b85507c4"
+            };
+
+            var courses = connection.Query(
+                procedure,
+                parms,
+                commandType: CommandType.StoredProcedure
+            );
+
+            foreach (var item in courses)
+            {
+                Console.WriteLine($"{item.Id} - {item.Title}");
+            }
         }
     }
 }
