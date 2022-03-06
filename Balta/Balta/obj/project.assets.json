@@ -8,23 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Douglas Morais\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\jander.morais\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\DEVPROJECTS\\VisualStudio\\Repositories\\Balta\\Balta.csproj",
+      "projectUniqueName": "C:\\Users\\jander.morais\\Documents\\Codes\\dotnet-cli-projects\\Balta\\Balta.csproj",
       "projectName": "Balta",
-      "projectPath": "F:\\DEVPROJECTS\\VisualStudio\\Repositories\\Balta\\Balta.csproj",
-      "packagesPath": "C:\\Users\\Douglas Morais\\.nuget\\packages\\",
-      "outputPath": "F:\\DEVPROJECTS\\VisualStudio\\Repositories\\Balta\\obj\\",
+      "projectPath": "C:\\Users\\jander.morais\\Documents\\Codes\\dotnet-cli-projects\\Balta\\Balta.csproj",
+      "packagesPath": "C:\\Users\\jander.morais\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jander.morais\\Documents\\Codes\\dotnet-cli-projects\\Balta\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Douglas Morais\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jander.morais\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
