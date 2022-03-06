@@ -13,6 +13,7 @@ namespace BaltaDataAccess
             {
                 ListCategories(connection);
                 UpdateCategory(connection);
+                DeleteCategory(connection);
                 ListCategories(connection);
                 //CreateCategory(connection);
             }
@@ -62,7 +63,7 @@ namespace BaltaDataAccess
                 category.Description,
                 category.Featured,
             });
-            Console.WriteLine($"{rows} linhas inseridas.");
+            Console.WriteLine($"Operação Create: {rows} linha(s) afetada(s).");
         }
 
         static void UpdateCategory(SqlConnection connection)
@@ -82,7 +83,22 @@ namespace BaltaDataAccess
                 Title = "Frontend 2021",
             });
 
-            Console.WriteLine($"{rows} registros atualizados");
+            Console.WriteLine($"Operação Update: {rows} linha(s) afetada(s).");
+        }
+
+        static void DeleteCategory(SqlConnection connection)
+        {
+            var deleteQuery = @"
+                DELETE FROM 
+                    [Category] 
+                WHERE
+                    [Id] = @Id
+            ";
+            var rows = connection.Execute(deleteQuery, new
+            {
+                Id = "8079762d-b2c7-4617-ac60-bf6187563b06"
+            });
+            Console.WriteLine($"Operação Delete: {rows} linha(s) afetada(s).");
         }
     }
 }
