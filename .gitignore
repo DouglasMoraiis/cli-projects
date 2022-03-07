@@ -35,3 +35,36 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+# Other files
+Balta/Balta/obj/Debug/net6.0/Balta.assets.cache
+Balta/Balta/obj/Debug/net6.0/Balta.GeneratedMSBuildEditorConfig.editorconfig
+Balta/BaltaDataAccess/.vs/BaltaDataAccess/v16/.suo
+Balta/BaltaDataAccess/bin/Debug/net6.0/BaltaDataAccess.deps.json
+Balta/BaltaDataAccess/bin/Debug/net6.0/BaltaDataAccess.dll
+Balta/BaltaDataAccess/bin/Debug/net6.0/BaltaDataAccess.exe
+Balta/BaltaDataAccess/bin/Debug/net6.0/BaltaDataAccess.pdb
+Balta/BaltaDataAccess/obj/BaltaDataAccess.csproj.nuget.g.props
+Balta/BaltaDataAccess/obj/BaltaDataAccess.csproj.nuget.g.targets
+Balta/BaltaDataAccess/obj/project.assets.json
+Balta/BaltaDataAccess/obj/BaltaDataAccess.csproj.nuget.dgspec.json
+Balta/BaltaDataAccess/obj/project.nuget.cache
+Balta/BaltaDataAccess/obj/Debug/net6.0/apphost.exe
+Balta/BaltaDataAccess/obj/Debug/net6.0/BaltaDataAccess.assets.cache
+Balta/BaltaDataAccess/obj/Debug/net6.0/BaltaDataAccess.AssemblyInfo.cs
+Balta/BaltaDataAccess/obj/Debug/net6.0/BaltaDataAccess.csproj.AssemblyReference.cache
+Balta/BaltaDataAccess/obj/Debug/net6.0/BaltaDataAccess.csproj.CoreCompileInputs.cache
+Balta/BaltaDataAccess/obj/Debug/net6.0/BaltaDataAccess.csproj.FileListAbsolute.txt
+Balta/BaltaDataAccess/obj/Debug/net6.0/BaltaDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+Balta/BaltaDataAccess/obj/Debug/net6.0/BaltaDataAccess.dll
+Balta/BaltaDataAccess/obj/Debug/net6.0/BaltaDataAccess.genruntimeconfig.cache
+Balta/BaltaDataAccess/obj/Debug/net6.0/BaltaDataAccess.pdb
+Balta/BaltaDataAccess/obj/Debug/net6.0/ref/BaltaDataAccess.dll
+Balta/BaltaDataAccess/obj/Release/net6.0/BaltaDataAccess.assets.cache
+Balta/BaltaDataAccess/obj/Release/net6.0/BaltaDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+Stopwatch/obj/Debug/net5.0/Stopwatch.assets.cache
+Stopwatch/obj/Debug/net5.0/Stopwatch.GeneratedMSBuildEditorConfig.editorconfig
+.assets.cache
+Balta/Balta/obj/Debug/net6.0/Balta.assets.cache
+Balta/Balta/obj/Debug/net6.0/Balta.csproj.AssemblyReference.cache
+Balta/Balta/obj/Debug/net6.0/Balta.assets.cache

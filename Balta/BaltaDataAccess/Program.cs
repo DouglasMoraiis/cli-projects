@@ -20,7 +20,7 @@ namespace BaltaDataAccess
                 //ExecuteProcedure(connection);
                 //ExecuteReadProcedure(connection);
                 //ExecuteScalar(connection);
-                // ReadView(connection);
+                //ReadView(connection);
                 //OneToOne(connection);
                 //OneToMany(connection);
                 //ListCategories(connection);
