@@ -24,7 +24,10 @@ namespace BaltaDataAccess
                 //OneToOne(connection);
                 //OneToMany(connection);
                 //ListCategories(connection);
-                QueryMultiple(connection);
+                //QueryMultiple(connection);
+                //SelectIn(connection);
+                //Like(connection);
+                Transaction(connection);
             }
         }
 
@@ -391,6 +394,69 @@ namespace BaltaDataAccess
                 Console.WriteLine(item.Title);
             }
 
+        }
+
+        static void Like(SqlConnection connection)
+        {
+            var term = "api";
+            var query = @"
+                SELECT * FROM 
+                    [Courses]
+                WHERE 
+                    [Title] 
+                LIKE
+                    @exp
+            ";
+
+            var items = connection.Query<Course>(query, new
+            {
+                exp = $"%{term}%"
+            });
+        }
+
+        static void Transaction(SqlConnection connection)
+        {
+            var category = new Category();
+            category.Id = Guid.NewGuid();
+            category.Title = "Amazon AWS";
+            category.Url = "amazon.com";
+            category.Summary = "AWS Cloud";
+            category.Order = 8;
+            category.Description = "Categoria destinada a serviços AWS";
+            category.Featured = false;
+
+            //Warning !!! - SQL Injection
+            var insertSql = @"
+                INSERT INTO 
+                    [Category] 
+                VALUES (
+                    @Id, 
+                    @Title, 
+                    @Url, 
+                    @Summary, 
+                    @Order, 
+                    @Description, 
+                    @Featured
+            )";
+
+            using (var transaction = connection.BeginTransaction())
+            {
+                var affectedrows = connection.Execute(insertSql, new
+                {
+                    category.Id,
+                    category.Title,
+                    category.Url,
+                    category.Summary,
+                    category.Order,
+                    category.Description,
+                    category.Featured,
+                });
+
+                transaction.Commit();
+                //transaction.Rollback();
+                Console.WriteLine($"Operação Create: {affectedrows} linha(s) afetada(s).");
+
+            }
         }
     }
 }
