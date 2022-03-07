@@ -22,8 +22,9 @@ namespace BaltaDataAccess
                 //ExecuteScalar(connection);
                 // ReadView(connection);
                 //OneToOne(connection);
-                OneToMany(connection);
+                //OneToMany(connection);
                 //ListCategories(connection);
+                QueryMultiple(connection);
             }
         }
 
@@ -345,6 +346,51 @@ namespace BaltaDataAccess
                     Console.WriteLine($" + {item.Title}");
                 }
             }
+        }
+
+        static void QueryMultiple(SqlConnection connection)
+        {
+            var query = "SELECT * FROM [Category]; SELECT * FROM [Course]";
+
+            using (var multi = connection.QueryMultiple(query))
+            {
+                var categories = multi.Read<Category>();
+                var courses = multi.Read<Course>();
+
+                foreach (var item in categories)
+                {
+                    Console.WriteLine(item.Title);
+                }
+
+                foreach (var item in courses)
+                {
+                    Console.WriteLine(item.Title);
+                }
+            }
+        }
+
+        static void SelectIn(SqlConnection connection)
+        {
+            var query = @"
+                SELECT * FROM
+                    [Career] 
+                WHERE
+                    [Id] IN @Id
+                ";
+
+            var items = connection.Query<Career>(query, new
+            {
+                Id = new[] {
+                    "GUID 1",
+                    "GUID 2"
+                },
+            });
+
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.Title);
+            }
+
         }
     }
 }
