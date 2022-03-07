@@ -18,7 +18,9 @@ namespace BaltaDataAccess
                 //GetCategory(connection);
                 //CreateManyCategories(connection);
                 //ExecuteProcedure(connection);
-                ExecuteReadProcedure(connection);
+                //ExecuteReadProcedure(connection);
+                //ExecuteScalar(connection);
+                ReadView(connection);
                 //ListCategories(connection);
             }
         }
@@ -212,6 +214,54 @@ namespace BaltaDataAccess
                 parms,
                 commandType: CommandType.StoredProcedure
             );
+
+            foreach (var item in courses)
+            {
+                Console.WriteLine($"{item.Id} - {item.Title}");
+            }
+        }
+
+        static void ExecuteScalar(SqlConnection connection)
+        {
+            var category = new Category();
+            category.Title = "Amazon AWS Scalar";
+            category.Url = "amazon.com";
+            category.Summary = "AWS Cloud";
+            category.Order = 8;
+            category.Description = "Categoria destinada a serviços AWS";
+            category.Featured = false;
+
+            //Warning !!! - SQL Injection
+            var insertSql = @"
+                INSERT INTO 
+                    [Category] 
+                OUTPUT inserted.[Id]
+                VALUES (
+                    NEWID(), 
+                    @Title, 
+                    @Url, 
+                    @Summary, 
+                    @Order, 
+                    @Description, 
+                    @Featured
+                )";
+
+            var id = connection.ExecuteScalar<Guid>(insertSql, new
+            {
+                category.Title,
+                category.Url,
+                category.Summary,
+                category.Order,
+                category.Description,
+                category.Featured,
+            });
+            Console.WriteLine($"ID da categoria = {id}");
+        }
+
+        static void ReadView(SqlConnection connection)
+        {
+            var sql = "SELECT * FROM [vwCourses]";
+            var courses = connection.Query(sql);
 
             foreach (var item in courses)
             {
