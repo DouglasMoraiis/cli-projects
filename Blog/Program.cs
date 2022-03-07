@@ -11,81 +11,31 @@ namespace Blog
 
         static void Main(string[] args)
         {
-            // CRUD OPERATIONS
-            // ReadUsers();
-            // ReadUser();
-            // CreateUser();
-            // UpdateUser();
-            // DeleteUser();
+            var connection = new SqlConnection(CONNECTION_STRING);
+            connection.Open();
+
+            ReadUsers(connection);
+            ReadRoles(connection);
+
+            connection.Close();
         }
 
-        public static void ReadUsers()
+        public static void ReadUsers(SqlConnection connection)
         {
-            var repository = new UserRepository();
+            var repository = new UserRepository(connection);
             var users = repository.Get();
-            
+
             foreach (var user in users)
-            {
                 Console.WriteLine("User: " + user.Name);
-            }
         }
 
-        public static void ReadUser()
+        public static void ReadRoles(SqlConnection connection)
         {
-            using (var connection = new SqlConnection(CONNECTION_STRING))
-            {
-                var user = connection.Get<User>(1);
-                Console.WriteLine("User: " + user.Name);
-            }
-        }
+            var repository = new RoleRepository(connection);
+            var roles = repository.Get();
 
-        public static void CreateUser()
-        {
-            var user = new User()
-            {
-                Bio = "Namorada",
-                Name = "Samara Jaila",
-                Email = "samara@gmail.com",
-                Image = "https://samara.com",
-                PasswordHash = "HASH",
-                Slug = "samara-jaila"
-            };
-
-            using (var connection = new SqlConnection(CONNECTION_STRING))
-            {
-                connection.Insert<User>(user);
-                Console.WriteLine("Cadastro realizado com sucesso!");
-            }
-        }
-
-        public static void UpdateUser()
-        {
-            var user = new User()
-            {
-                Id = 2,
-                Bio = "Namorada",
-                Name = "Samara Jaila",
-                Email = "samara@gmail.com",
-                Image = "https://samara.com",
-                PasswordHash = "HASH",
-                Slug = "samara-jaila"
-            };
-
-            using (var connection = new SqlConnection(CONNECTION_STRING))
-            {
-                connection.Update<User>(user);
-                Console.WriteLine("Atualização realizada com sucesso!");
-            }
-        }
-
-        public static void DeleteUser()
-        {
-            using (var connection = new SqlConnection(CONNECTION_STRING))
-            {
-                var user = connection.Get<User>(2);
-                connection.Delete<User>(user);
-                Console.WriteLine("Exclusão realizada com sucesso!");
-            }
+            foreach (var role in roles)
+                Console.WriteLine("User: " + role.Name);
         }
     }
 }
