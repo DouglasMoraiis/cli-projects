@@ -7,13 +7,13 @@ namespace Blog
 {
     class Program
     {
-        private const string CONNECTION_STRING = @"Server=localhost,1433;Database=Blog;User ID=sa; Password=S=jdm123mdj@";
+        private const string CONNECTION_STRING = "Server=localhost, 1433;Database=Blog;User ID=sa; Password=S=jdm123mdj@; TrustServerCertificate=true";
 
         static void Main(string[] args)
         {
             var connection = new SqlConnection(CONNECTION_STRING);
             connection.Open();
-
+            
             ReadUsers(connection);
             ReadRoles(connection);
 
