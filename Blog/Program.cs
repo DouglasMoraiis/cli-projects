@@ -15,20 +15,27 @@ namespace Blog
             connection.Open();
 
             DeleteUser(connection);
-            ReadUsers(connection);
+            ReadUsersWithRoles(connection);
             ReadRoles(connection);
 
 
             connection.Close();
         }
 
-        public static void ReadUsers(SqlConnection connection)
+        public static void ReadUsersWithRoles(SqlConnection connection)
         {
-            var repository = new Repository<User>(connection);
-            var items = repository.Get();
+            var repository = new UserRepository(connection);
+            var items = repository.GetWithRoles();
 
             foreach (var item in items)
+            {
                 Console.WriteLine($"{item.Id} - {item.Name}");
+                foreach (var role in item.Roles) 
+                {
+                    Console.WriteLine($" - {role.Name}");
+                }
+            }
+
         }
         public static void ReadRoles(SqlConnection connection)
         {
@@ -77,12 +84,12 @@ namespace Blog
         public static void CreateRole(SqlConnection connection)
         {
             var repository = new Repository<Role>(connection);
-            var user = new Role()
+            var role = new Role()
             {
                 Name = "Jander",
                 Slug = "jander-morais",
             };
-            repository.Create(user);
+            repository.Create(role);
             Console.WriteLine("Role criado!");
         }
 
