@@ -22,17 +22,17 @@ namespace Blog
         private static void Load()
         {
             Console.Clear();
-            Console.WriteLine("MEU BLOG");
+            Console.WriteLine("MY BLOG");
             Console.WriteLine();
-            Console.WriteLine("O que deseja fazer?");
+            Console.WriteLine("What do you want to do?");
             Console.WriteLine();
-            Console.WriteLine("1 - Gestão de Usuário");
-            Console.WriteLine("2 - Gestão de Perfil");
-            Console.WriteLine("3 - Gestão de Categoria");
-            Console.WriteLine("4 - Gestão de Tag");
-            Console.WriteLine("5 - Vincular Perfil/Usuário");
-            Console.WriteLine("6 - Vincular Post/Tag");
-            Console.WriteLine("7 - Relatórios");
+            Console.WriteLine("1 - User Managment");
+            Console.WriteLine("2 - Role Managment");
+            Console.WriteLine("3 - Category Managment");
+            Console.WriteLine("4 - Tag Managment");
+            Console.WriteLine("5 - Link Role/User");
+            Console.WriteLine("6 - Link Post/Tag");
+            Console.WriteLine("7 - Reports");
             Console.WriteLine();
             Console.WriteLine();
             var option = short.Parse(Console.ReadLine()!);
@@ -41,7 +41,7 @@ namespace Blog
             {
                 case 1: MenuUserScreen.Load(); break;
                 case 2: MenuRoleScreen.Load(); break;
-                //case 3: MenuCategoryScreen.Load(); break;
+                case 3: MenuCategoryScreen.Load(); break;
                 case 4: MenuTagScreen.Load(); break;
                 case 5: ListUserRoleScreen.Load(); break;
                 default: Load(); break;

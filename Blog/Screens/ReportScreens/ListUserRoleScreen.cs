@@ -7,11 +7,11 @@ namespace Blog.Screens
     {
         public static void Load()
         {
-            Console.WriteLine("User/Role list");
-            Console.WriteLine("-------------");
+            Console.WriteLine("List user/role");
+            Console.WriteLine("---------------");
             List();
             Console.ReadKey();
-            MenuUserScreen.Load();
+            MenuReportScreen.Load();
         }
 
         private static void List()

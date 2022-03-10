@@ -20,12 +20,14 @@ namespace Blog.Repositories
                 FROM
                     [Category]  
                 LEFT JOIN 
-                    [Post] ON [Category].[Id] = [Post].[CategoryId]
+                    [CategoryPost] ON [CategoryPost].[CategoryId] = [Category].[Id]
+                LEFT JOIN 
+                    [Post] ON [UserPost].[PostId] = [Post].[Id]
             ";
 
             var categories = new List<Category>();
 
-            // QUEREMOS BUSCAR UM User + UM Role, SENDO QUE ESSE Role ESTÁ EM User.
+            // QUEREMOS BUSCAR UM Category + UM Post, SENDO QUE ESSE Post ESTÁ EM Category.
             // VOCE PODE PASSAR n OBJETOS NA QUERY, MAS O ULTIMO É ONDE VAI SER CONSUMADO OS DADOS
             var items = _connection.Query<Category, Post, Category>(
                 query,
