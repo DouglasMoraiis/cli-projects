@@ -1,0 +1,44 @@
+using Blog.Models;
+using Blog.Repositories;
+
+namespace Blog.Screens
+{
+    public static class UpdateRoleScreen
+    {
+        public static void Load()
+        {
+            Console.Clear();
+            Console.WriteLine("Update role");
+            Console.WriteLine("-------------");
+            Console.Write("Id: ");
+            var id = Console.ReadLine();
+            Console.Write("Name: ");
+            var name = Console.ReadLine();
+            Console.Write("Slug: ");
+            var slug = Console.ReadLine();
+            Update(new Role
+            {
+                Id = int.Parse(id),
+                Name = name,
+                Slug = slug,
+            });
+            Console.ReadKey();
+            MenuRoleScreen.Load();
+        }
+
+        public static void Update(Role role)
+        {
+            try
+            {
+                var repository = new Repository<Role>(Database.connection);
+                repository.Update(role);
+                Console.WriteLine("The role has been updated!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Could not update role");
+                Console.WriteLine(ex);
+            }
+        }
+    }
+}
