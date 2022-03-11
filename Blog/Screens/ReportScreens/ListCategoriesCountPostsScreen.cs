@@ -16,8 +16,8 @@ namespace Blog.Screens
 
         private static async void List()
         {
-            var repository = new Repository<Category>(Database.connection);
-            var users = repository.Get();
+            var repository = new CategoryRepository(Database.connection);
+            var users = repository.GetWithPosts();
             foreach (var item in users)
             {
                 int countPosts = item.Posts.Count();

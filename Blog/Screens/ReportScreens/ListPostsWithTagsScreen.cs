@@ -3,12 +3,12 @@ using Blog.Repositories;
 
 namespace Blog.Screens
 {
-    public static class ListTagsWithCategoryScreen
+    public static class ListPostsWithTagsScreen
     {
         public static void Load()
         {
-            Console.WriteLine("List tags (category)");
-            Console.WriteLine("---------------");
+            Console.WriteLine("List posts (tags,)");
+            Console.WriteLine("----------------");
             List();
             Console.ReadKey();
             MenuReportScreen.Load();
@@ -16,8 +16,8 @@ namespace Blog.Screens
 
         private static async void List()
         {
-            var repository = new Repository<Tag>(Database.connection);
-            var users = repository.GetWithPosts();
+            var repository = new PostRepository(Database.connection);
+            var posts = repository.GetWithTags();
             // foreach (var item in users)
             // {
             //     int countPosts = item.Posts.Count();

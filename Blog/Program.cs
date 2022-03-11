@@ -19,7 +19,7 @@ namespace Blog
             Console.ReadKey();
         }
 
-        private static void Load()
+        public static void Load()
         {
             Console.Clear();
             Console.WriteLine("MY BLOG");
@@ -43,7 +43,9 @@ namespace Blog
                 case 2: MenuRoleScreen.Load(); break;
                 case 3: MenuCategoryScreen.Load(); break;
                 case 4: MenuTagScreen.Load(); break;
-                case 5: ListUserRoleScreen.Load(); break;
+                case 5: LinkUserRoleScreen.Load(); break;
+                case 6: break;
+                case 7: MenuReportScreen.Load(); break;
                 default: Load(); break;
             }
         }

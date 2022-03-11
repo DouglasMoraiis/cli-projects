@@ -8,11 +8,11 @@ namespace Blog.Screens
             Console.WriteLine("Reports");
             Console.WriteLine("-------------------");
             Console.WriteLine("What do you want to do?");
-            Console.WriteLine("1 - List user/role");
+            Console.WriteLine("1 - List user (roles,)");
             Console.WriteLine("2 - List categories/post count");
             Console.WriteLine("3 - List tags/post count");
             Console.WriteLine("4 - List posts (category)");
-            Console.WriteLine("5 - List tags (category)");
+            Console.WriteLine("5 - List posts (tags,)");
             Console.WriteLine();
             Console.WriteLine();
             var option = short.Parse(Console.ReadLine()!);

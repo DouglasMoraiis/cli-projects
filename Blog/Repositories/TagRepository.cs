@@ -11,7 +11,7 @@ namespace Blog.Repositories
         public TagRepository(SqlConnection connection) : base(connection)
             => _connection = connection;
 
-        public List<Tag> GetWithPosts()
+        public List<Tag> GetWithCountPosts()
         {
             var query = @"
                 SELECT
@@ -25,30 +25,30 @@ namespace Blog.Repositories
                     [Role] ON [UserRole].[RoleId] = [Role].[Id]
             ";
 
-            var tags = new List<User>();
+            var tags = new List<Tag>();
 
             // QUEREMOS BUSCAR UM User + UM Role, SENDO QUE ESSE Role ESTÁ EM User.
             // VOCE PODE PASSAR n OBJETOS NA QUERY, MAS O ULTIMO É ONDE VAI SER CONSUMADO OS DADOS
-            var items = _connection.Query<Tag, Post, Tag>(
-                query,
-                (tag, post) =>
-                {
-                    var tg = tags.FirstOrDefault(x => x.Id == tag.Id);
-                    if (tg == null)
-                    {
-                        tg = tag;
-                        if (post != null)
-                            tg.Roles.Add(post);
+            // var items = _connection.Query<Tag, Post, Tag>(
+            //     query,
+            //     (tag, post) =>
+            //     {
+            //         var tg = tags.FirstOrDefault(x => x.Id == tag.Id);
+            //         if (tg == null)
+            //         {
+            //             tg = tag;
+            //             if (post != null)
+            //                 tg.Roles.Add(post);
 
-                        tags.Add(tg);
-                    }
-                    else
-                        tg.Roles.Add(post);
+            //             tags.Add(tg);
+            //         }
+            //         else
+            //             tg.Roles.Add(post);
 
-                    return tags;                        
-                },
-                splitOn: "Id"
-            );
+            //         return tags;
+            //     },
+            //     splitOn: "Id"
+            // );
 
             return tags;
         }

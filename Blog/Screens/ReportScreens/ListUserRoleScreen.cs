@@ -7,8 +7,8 @@ namespace Blog.Screens
     {
         public static void Load()
         {
-            Console.WriteLine("List user/role");
-            Console.WriteLine("---------------");
+            Console.WriteLine("List user (roles,)");
+            Console.WriteLine("-----------------");
             List();
             Console.ReadKey();
             MenuReportScreen.Load();
@@ -20,13 +20,15 @@ namespace Blog.Screens
             var users = repository.GetWithRoles();
             foreach (var item in users)
             {
-                Console.WriteLine($"{item.Name} ({item.Slug})");
-                string roles = "role(s): ";
+                string roles = "Role(s): ";
                 foreach (var role in item.Roles)
                 {
-                    roles += role.Name + ",";
+                    if ((item.Roles.Last()).Id != role.Id)
+                        roles += role.Name + ",";
+                    else
+                        roles += role.Name + ".";
                 }
-                Console.WriteLine(roles);
+                Console.WriteLine($"{item.Name} | {item.Email} | {roles}");
             }
         }
     }

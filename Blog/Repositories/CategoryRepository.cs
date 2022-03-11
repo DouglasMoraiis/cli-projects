@@ -20,9 +20,7 @@ namespace Blog.Repositories
                 FROM
                     [Category]  
                 LEFT JOIN 
-                    [CategoryPost] ON [CategoryPost].[CategoryId] = [Category].[Id]
-                LEFT JOIN 
-                    [Post] ON [UserPost].[PostId] = [Post].[Id]
+                    [Post] ON [Category].[Id] = [Post].[CategoryId]   
             ";
 
             var categories = new List<Category>();
