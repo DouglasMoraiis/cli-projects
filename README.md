@@ -31,18 +31,14 @@ Sobre os projetos:
 
 ## 🚀 Tecnologias
 
-As seguintes ferramentas foram usadas na construção do projeto:
+As seguintes stacks foram usadas na construção do projeto:
 
-- **[TypeScript](https://www.typescriptlang.org/)**
-- **[React.js](https://reactjs.org/)**
-- **[Material UI](https://ejs.co/)**
-- **[Axios](https://axios-http.com/)**
-
-> Veja o arquivo [package.json](package.json)
++ **[.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/)**
++ **[C#](https://docs.microsoft.com/pt-br/dotnet/csharp/)**
 
 ## 👨‍💻 Autor
 
-Oi, me chamo **Jander Douglas**. Entre em contato comigo! 👇
+Oi, me chamo **Jander Douglas**👋. Pode entrar em contato se precisar de algo! 👇
 <p>
   <a href="https://web.whatsapp.com/send?phone=5588996776422" alt="WhatsApp" target="_blank" >
   <img src="https://img.shields.io/badge/WhatsApp-25d366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
